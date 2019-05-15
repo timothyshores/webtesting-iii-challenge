@@ -24,6 +24,10 @@ describe('<Dashboard />', () => {
         expect(getByText(/open/i)).toBeInTheDocument();
     });
     it('shows the controls and display', () => {
-
+        const { getByText } = render(<Dashboard />);
+        expect(getByText(/unlocked/i)).toBeInTheDocument();
+        expect(getByText(/open/i)).toBeInTheDocument();
+        expect(getByText(/lock gate/i)).toBeInTheDocument();
+        expect(getByText(/close gate/i)).toBeInTheDocument();
     });
 });
