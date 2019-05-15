@@ -30,4 +30,11 @@ describe('<Dashboard />', () => {
         expect(getByText(/lock gate/i)).toBeInTheDocument();
         expect(getByText(/close gate/i)).toBeInTheDocument();
     });
+    it('cannot be closed or opened if it is locked', () => {
+        const { getByText } = render(<Dashboard />);
+        const closeGateButton = getByText(/close gate/i);
+        fireEvent.click(closeGateButton);
+        const lockGateButton = getByText(/lock gate/i);
+        fireEvent.click(lockGateButton);
+    });
 });
